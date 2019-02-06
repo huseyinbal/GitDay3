@@ -29,7 +29,7 @@ public class LoginTests {
 
     @Test
     public void loginTest1(){
-driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
+        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
 
         WebElement username=driver.findElement(By.id("ctl00_MainContent_username"));
         WebElement password=driver.findElement(By.id("ctl00_MainContent_password"));
@@ -46,7 +46,25 @@ driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders
             System.out.println("Not verified");
         }
     }
+    @Test
+    public void negativeTest(){
+        driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx");
 
+        WebElement username=driver.findElement(By.id("ctl00_MainContent_username"));
+        WebElement password=driver.findElement(By.id("ctl00_MainContent_password"));
+        WebElement loginBtn=driver.findElement(By.id("ctl00_MainContent_login_button"));
+
+        username.sendKeys("Tester2");
+        password.sendKeys("test2");
+        loginBtn.click();
+
+        String newTitle=driver.getTitle();
+        if(newTitle.equals("Web Orders")){
+            System.out.println("Web title is verified");
+        }else{
+            System.out.println("Not verified");
+        }
+    }
     @AfterMethod
     public void cleanUp(){
         driver.close();
