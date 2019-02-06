@@ -39,7 +39,7 @@ driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders
         password.sendKeys("test");
         loginBtn.click();
 
-        String newTitle=driver.getTitle();
+        
         if(newTitle.equals("Web Orders")){
             System.out.println("Web title is verified");
         }else{
