@@ -50,6 +50,7 @@ driver.get("http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders
     @AfterMethod
     public void cleanUp(){
         driver.close();
+        System.out.println("speakout");
 
 
     }
